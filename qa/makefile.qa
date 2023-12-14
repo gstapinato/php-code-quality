@@ -6,11 +6,11 @@ HOST_PATH := $(PWD)
 CONTAINER_PATH := /usr/src/myapp
 
 DOCKER_CONTAINER_NAME := php-code-quality
-DOCKER_USER_IMAGE_TAG := php-code-quality:latest
+DOCKER_USER_IMAGE_TAG := gstapinato/php-code-quality:latest
 
 phpstan:
 	$(info Make: Running "$(DOCKER_USER_IMAGE_TAG)" environment images.)
 	mkdir -p $(QA_DIRECTORY)
 	docker run -it --rm --name $(DOCKER_CONTAINER_NAME) -v $(HOST_PATH):$(CONTAINER_PATH) -w $(CONTAINER_PATH) $(DOCKER_USER_IMAGE_TAG)  \
-	sh -c 'php -f ~/.config/composer/vendor/bin/phpstan analyse --memory-limit 1G -c $(CONTAINER_PATH)/phpstan.neon --error-format=table > $(CONTAINER_PATH)/$(QA_DIRECTORY)/phpstan.txt'
+	sh -c 'php -f ~/.config/composer/vendor/bin/phpstan analyse --memory-limit 1G -c $(CONTAINER_PATH)/phpstan.neon --error-format=table > $(QA_DIRECTORY)/phpstan_result.txt'
 
