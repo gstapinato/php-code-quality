@@ -26,6 +26,6 @@ $ make -f makefile.qa phpstan
 PHP version can be changed on dockerfile before docker build.
 
 
-### Reference
+#### References
 
 https://github.com/adamculp/php-code-quality
