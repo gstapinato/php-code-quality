@@ -15,7 +15,9 @@ $ docker build -t gstapinato/php-code-quality .
 $ cp -a qa/. <project_root_directory>
 ```
 
-Then, on your project run 
+## Commands availables
+
+#### PHPStan
 
 ```
 $ make -f makefile.qa phpstan
